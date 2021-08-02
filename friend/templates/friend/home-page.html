@@ -5,27 +5,28 @@ Homepage
 {% endblock %}
 
 {% block additional_head %}
-
+<link href="{% static 'friend/home-page.css' %}" rel="stylesheet">
 {% endblock %}
 
 {% block main_content %}
-
+<div class="relative z-10">
+{% for person in birthdays %}
 <div class="max-w-4xl flex items-center h-auto lg:h-screen flex-wrap mx-auto my-32 lg:my-0">
     
     {% comment %} Card Start Here {% endcomment %}
 	<!--Main Col-->
 	<div id="profile" class="w-full lg:w-3/5 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white opacity-75 mx-6 lg:mx-0">
+    
 	
 
 		<div class="p-4 md:p-12 text-center lg:text-left">
 			<!-- Image for mobile view-->
-			<div class="block lg:hidden rounded-full shadow-xl mx-auto -mt-16 h-48 w-48 bg-cover bg-center" style="background-image: url('https://source.unsplash.com/v2aKnjMbP_k')"></div>
+			<div class="block lg:hidden rounded-full shadow-xl mx-auto -mt-16 h-48 w-48 bg-cover bg-center" style="background-image: url('{{person.picture1.url}}')"></div>
 			
-			<h1 class="text-3xl font-bold pt-8 lg:pt-0">Your Name</h1>
+			<h1 class="text-3xl font-bold pt-8 lg:pt-0">{{person.name}}</h1>
 			<div class="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-green-500 opacity-25"></div>
-			<p class="pt-4 text-base font-bold flex items-center justify-center lg:justify-start"> What you do</p>
-			<p class="pt-2 text-gray-600 text-xs lg:text-sm flex items-center justify-center lg:justify-start"> Your Location - 25.0000° N, 71.0000° W</p>
-			<p class="pt-8 text-sm">Totally optional short description about yourself, what you do and so on.</p>
+			<p class="pt-4 text-base font-bold flex items-center justify-center lg:justify-start"><i class="fas fa-info-circle pr-2"></i>  {{person.short_intro}}</p>Something Here</p>
+			<p class="pt-8 text-sm">{{person.description}}</p>
 
 			<div class="pt-12 pb-8">
 				<button class="bg-green-700 hover:bg-green-900 text-white font-bold py-2 px-4 rounded-full">
@@ -34,11 +35,21 @@ Homepage
 			</div>
 
 			<div class="mt-6 pb-16 lg:pb-0 w-4/5 lg:w-full mx-auto flex flex-wrap items-center justify-between">
-				<a class="link" href="#" data-tippy-content="@facebook_handle"><i class="fab fa-facebook-square fa-2x"></i></a>
-				<a class="link" href="#" data-tippy-content="@twitter_handle"><i class="fab fa-twitter fa-2x"></i></a>
-				<a class="link" href="#" data-tippy-content="@github_handle"><i class="fab fa-github fa-2x"></i></a>
-				<a class="link" href="#" data-tippy-content="@instagram_handle"><i class="fab fa-instagram fa-2x"></i></a>
-				<a class="link" href="#" data-tippy-content="@youtube_handle"><i class="fab fa-youtube fa-2x"></i></a>
+            {% if person.facebook_handle %}
+				<a class="link" href="https://fb.me/{{person.facebook_handle}}" data-tippy-content="@facebook_handle"><i class="fab fa-facebook-square fa-2x"></i></a>
+            {% endif %}
+           {% if person.twitter_handle %} 
+				<a class="link" href="https://twitter.com/{{person.facebook_handle}}" data-tippy-content="@twitter_handle"><i class="fab fa-twitter fa-2x"></i></a>
+                {% endif %}
+                {% if person.github_handle %}
+				<a class="link" href="https://github.com/{{person.github_handle}}" data-tippy-content="@github_handle"><i class="fab fa-github fa-2x"></i></a>
+                {% endif %}
+                {% if person.instagram_handle %}
+				<a class="link" href="https://www.instagram.com/{{person.instagram_handle}}" data-tippy-content="@instagram_handle"><i class="fab fa-instagram fa-2x"></i></a>
+                {% endif %}
+                {% if person.youtube_handle %}
+				<a class="link" href="https://www.youtube.com/channel/{{person.youtube_handle}}" data-tippy-content="@youtube_handle"><i class="fab fa-youtube fa-2x"></i></a>
+                {% endif %}
 			</div>
 			
 			<!-- Use https://simpleicons.org/ to find the svg for your preferred product --> 
@@ -50,20 +61,29 @@ Homepage
 	<!--Img Col-->
 	<div class="w-full lg:w-2/5">
 		<!-- Big profile image for side bar (desktop) -->
-		<img src="https://source.unsplash.com/v2aKnjMbP_k" class="rounded-none lg:rounded-lg shadow-2xl hidden lg:block">
+		<img src="{{person.picture1.url}}" class="rounded-none lg:rounded-lg shadow-2xl hidden lg:block">
 		<!-- Image from: http://unsplash.com/photos/MP0IUfwrn0A -->
 		
 	</div>
 	{% comment %} Card End Here{% endcomment %}
 	
-	<!-- Pin to top right corner -->
-	  <div class="absolute top-0 right-0 h-12 w-18 p-4">
-		<button class="focus:outline-none"><i class="fab fa-github fa-3x"></i></button>
-	  </div>
 
 </div>
+{% endfor %}
+</div>
+<ul class="background-animate-css relative z-0">
+   <li></li>
+   <li></li>
+   <li></li>
+   <li></li>
+   <li></li>
+   <li></li>
+</ul>
 
-
+<!-- Pin to top right corner -->
+	  <div class="absolute top-0 right-0 h-12 w-18 p-4 z-20">
+		<a href="https://github.com/rijalanupraj" class="focus:outline-none text-white"><i class="fab fa-github fa-3x"></i></a>
+	  </div>
 {% endblock %}
  
 {% block additional_body %}
