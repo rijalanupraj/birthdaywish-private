@@ -1,5 +1,7 @@
 from pathlib import Path
 import os
+import django
+import django_heroku
 from dotenv import load_dotenv  # for python-dotenv method
 load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -116,3 +118,5 @@ STATICFILES_DIRS = [
 # Media Files
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+django_heroku.settings(locals())
