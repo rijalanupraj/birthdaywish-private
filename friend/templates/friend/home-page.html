@@ -15,9 +15,14 @@ Nawa Wisher - A Birthday Wisher Website
 
 {% block main_content %}
 <div class="relative z-10">
+{% if birthdays %}
 {% for person in birthdays %}
 {% include 'friend/snippets/person-card.html' with person=person %}
 {% endfor %}
+
+{% else %}
+{% include 'friend/snippets/no-birthday.html' %}
+{% endif %}
 </div>
 <ul class="background-animate-css relative z-0">
    <li></li>
