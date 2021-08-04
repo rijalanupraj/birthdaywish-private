@@ -7,6 +7,7 @@ class Friend(models.Model):
     name = models.CharField(max_length=255)
     is_active = models.BooleanField(default=True)
     short_intro = models.TextField(max_length=255)
+    birthday_wish = models.TextField(max_length=255)
     dob = models.DateField()
     description = models.TextField(null=True, blank=True)
     picture1 = models.ImageField(upload_to="images/profile_pic")
