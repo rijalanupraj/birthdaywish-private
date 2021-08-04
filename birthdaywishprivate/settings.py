@@ -25,6 +25,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'friend',
+    # Delete the previous media images on update
+    'django_cleanup.apps.CleanupConfig',
 ]
 
 MIDDLEWARE = [
