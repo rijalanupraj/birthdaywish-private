@@ -10,6 +10,7 @@ class Friend(models.Model):
     birthday_wish = models.TextField(max_length=255)
     dob = models.DateField()
     description = models.TextField(null=True, blank=True)
+    importance_level = models.IntegerField(default=1)
     picture1 = models.ImageField(upload_to="images/profile_pic")
     picture2 = models.ImageField(
         blank=True, null=True, upload_to="images/profile_pic")

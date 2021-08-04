@@ -177,3 +177,7 @@ body {
   bottom: -136px;
   animation-delay: 29s;
 }
+
+.my-text-orange {
+  color: #c8ff00;
+}
