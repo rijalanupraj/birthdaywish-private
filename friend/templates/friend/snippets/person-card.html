@@ -38,6 +38,9 @@
                 {% if person.youtube_handle %}
 				<a class="link" href="https://www.youtube.com/channel/{{person.youtube_handle}}" data-tippy-content="@youtube_handle"><i class="fab fa-youtube fa-2x"></i></a>
                 {% endif %}
+                {% if person.linkedin_handle%}
+				<a class="link" href="https://www.linkedin.com/in/{{person.linkedin_handle}}" data-tippy-content="@linkedin_handle"><i class="fab fa-linkedin fa-2x"></i></a>
+                {% endif %}
 			</div>
 			
 			<!-- Use https://simpleicons.org/ to find the svg for your preferred product --> 
