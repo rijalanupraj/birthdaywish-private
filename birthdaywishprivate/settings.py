@@ -27,6 +27,8 @@ INSTALLED_APPS = [
     'friend',
     # Delete the previous media images on update
     'django_cleanup.apps.CleanupConfig',
+    'cloudinary_storage',
+
 ]
 
 MIDDLEWARE = [
@@ -114,4 +116,13 @@ STATICFILES_DIRS = [
 
 # Media Files
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+# Cloudinary Storage
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': os.environ.get('CLOUDINARY_CLOUD_NAME'),
+    'API_KEY': os.environ.get('CLOUDINARY_API_KEY'),
+    'API_SECRET': os.environ.get('CLOUDINARY_API_SECRET'),
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
