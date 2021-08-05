@@ -23,6 +23,9 @@ urlpatterns = [
     path('', include('friend.urls')),
 
 ]
+if settings.DEBUG == False:
+    static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
 
 # Static & Media Management Files For Debug Mode Only.
 if settings.DEBUG:
