@@ -17,9 +17,9 @@
 			<p class="pt-8 text-sm">{{person.description}}</p>
 
 			<div class="pt-12 pb-8">
-				<button class="bg-blue-700 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded-full">
+				<a href="https://twitter.com/intent/tweet?text={{person.tweet_text}}%20{% if person.twitter_handle %}@{{person.twitter_handle}}{% else %}{{person.name}}{% endif %}%20{{request.build_absolute_uri}}" target="_blank" rel="noopener" class="bg-blue-700 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded-full">
 				Wish them Happy Birthday <i class="fas fa-glass-cheers text-yellow-200"></i>
-				</button> 
+				</a> 
 			</div>
 
 			<div class="mt-6 pb-16 lg:pb-0 w-4/5 lg:w-full mx-auto flex flex-wrap items-center justify-between">
@@ -27,7 +27,7 @@
 				<a class="link" href="https://fb.me/{{person.facebook_handle}}" data-tippy-content="@facebook_handle"><i class="fab fa-facebook-square fa-2x"></i></a>
             {% endif %}
            {% if person.twitter_handle %} 
-				<a class="link" href="https://twitter.com/{{person.facebook_handle}}" data-tippy-content="@twitter_handle"><i class="fab fa-twitter fa-2x"></i></a>
+				<a class="link" href="https://twitter.com/{{person.twitter_handle}}" data-tippy-content="@twitter_handle"><i class="fab fa-twitter fa-2x"></i></a>
                 {% endif %}
                 {% if person.github_handle %}
 				<a class="link" href="https://github.com/{{person.github_handle}}" data-tippy-content="@github_handle"><i class="fab fa-github fa-2x"></i></a>

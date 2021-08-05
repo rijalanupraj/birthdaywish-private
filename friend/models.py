@@ -38,6 +38,7 @@ class Friend(models.Model):
     is_active = models.BooleanField(default=True)
     short_intro = models.TextField(max_length=255)
     birthday_wish = models.TextField(max_length=255)
+    tweet_text = models.CharField(max_length=280)
     dob = models.DateField()
     description = models.TextField(null=True, blank=True)
     importance_level = models.IntegerField(default=1)
